@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Module
+# from flask import Module
 from flask import flash, redirect, render_template, request, url_for, session, jsonify
 
 from app.models import User
@@ -22,20 +22,20 @@ def signup():
 
     if request.method == 'GET':
         return render_template('admin/signup.html', form=form)
-
     username = form.username.data
     password = form.password.data
     email = form.email.data
-
+    print '---username---', username
+    print '---password---', password
+    print '---email---', email
     user = UserService.add_user(username, password, email)
-
     token = UserService.generate_email_token(user['email'])
 
     confirm_url = url_for('admin.confirm_email', token=token, external=True)
     html = render_template('admin/email.html', confirm_url=confirm_url)
     subject = "Please confirm your email"
     sender = 'bababa'
-    send_email(subject, sender, user['email'], html)
+    # send_email(subject, sender, user['email'], html)
 
     return render_template('admin/signin.html', form=form)
 
@@ -64,13 +64,13 @@ def signin():
     email = request.form.get('email')
     password = request.form.get('password')
 
-    user = UserService.get_by_email(email)
+    # user = UserService.get_by_email(email)
 
-    if user is not None and UserService.check_password(user['id'], password):
-        login_admin(user['id'])
-        return redirect(url_for('admin.show_posts'))
+    # if user is not None and UserService.check_password(user['id'], password):
+    #     login_admin(user['id'])
+    return redirect(url_for('admin.show_posts'))
 
-    return render_template('admin/signin.html')
+    # return render_template('admin/signin.html')
 
 
 @bp.route('/signout', methods=['GET', 'POST'])

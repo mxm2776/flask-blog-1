@@ -13,8 +13,10 @@ from app.application import create_app
 from app.extensions import db
 from app import models
 
+environment = config['development']
+app = create_app(environment)
+# print '-------------', config['development'].SERVER_IP
 
-app = create_app(config['development'])
 
 # flask_script -> add application of command line parameters
 manager = Manager(app)
@@ -33,7 +35,7 @@ def dropdb():
     if prompt_bool("Are you sure ? You will lose all your data!"):
         db.drop_all()
 
-manager.add_command("runserver", Server(host='0.0.0.0', port=5555))
+manager.add_command("runserver", Server(host= environment.SERVER_IP, port=5555, use_debugger=True))
 
 
 if __name__ == '__main__':

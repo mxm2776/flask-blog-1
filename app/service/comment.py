@@ -4,9 +4,9 @@ from flask import current_app
 
 from app.models import Comment
 from app.extensions import db
-from app.utils.cache import get_counter
-from app.utils.cache import inc_counter
-from app.utils.cache import set_counter
+# from app.utils.cache import get_counter
+# from app.utils.cache import inc_counter
+# from app.utils.cache import set_counter
 
 POST_COMMENTS_COUNT = {
         'key': 'posts:{post_id}:comments_count'

@@ -3,8 +3,8 @@
 from app.models import Post
 from app.extensions import db
 
-from app.utils.cache import get_post_cache
-from app.utils.cache import set_post_cache
+# from app.utils.cache import get_post_cache
+# from app.utils.cache import set_post_cache
 
 
 POST_CACHE = {

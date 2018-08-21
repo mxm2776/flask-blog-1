@@ -16,14 +16,13 @@ DEFAULT_APP_NAME = 'app'
 
 def create_app(config=None):
     app = Flask(DEFAULT_APP_NAME)
-
     configure_app(app, config)
     configure_extensions(app)
     configure_blueprints(app)
     configure_logging(app)
 
     app.debug_logger.debug(' * Runing in -----* ')
-
+    # print '----create_app---'
     return app
 
 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <!-- Custom styles for this template -->
     <link href="/static/css/blog.css" rel="stylesheet">
-    <title>My Blog - {% block title %}{% endblock %}</title>
+    <title>T-Mac Blog - {% block title %}{% endblock %}</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     {% block head %}{% endblock %}
   </head>
@@ -17,7 +17,7 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item active" href="#">Home</a>
+          <a class="blog-nav-item active" href="">Home</a>
         </nav>
       </div>
     </div>
@@ -25,10 +25,10 @@
     <div class="container">
 
       <div class="blog-header">
-        <h1 class="blog-title">My Flask Blog</h1>
+        <h1 class="blog-title">T-Mac</h1>
         <p class="lead blog-description">The quieter you become, the more you can hear.</p>
       </div>
-
+      <div ><a href="{{ url_for('admin.signin') }}" style="display:block; height:100px; width:100px"  >登陆</a></div>
       <div class="row">
 
         <div class="col-sm-8 blog-main">
@@ -64,12 +64,14 @@
               <li><a href="#">June 2013</a></li>
               <li><a href="#">May 2013</a></li>
               <li><a href="#">April 2013</a></li>
+              <li><a href="{{ url_for('admin.signin') }}">Sign In</a></li>
+
             </ol>
           </div>
           <div class="sidebar-module">
             <h4>Elsewhere</h4>
             <ol class="list-unstyled">
-              <li><a href="https://github.com/liuguoliang">GitHub</a></li>
+              <li><a href="https://github.com/mxm2776">GitHub</a></li>
               <li><a href="#">Twitter</a></li>
               <li><a href="#">Facebook</a></li>
             </ol>

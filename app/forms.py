@@ -6,14 +6,14 @@ from wtforms import validators
 
 from app.models import User
 
-
+# 注册表单
 class SignupForm(Form):
     username = TextField("Name",  [validators.Required("Please enter your name.")])
     email = TextField("Email",  [validators.Required("Please enter your email address."), validators.Email("Please enter your email address.")])
     password = PasswordField('Password', [validators.Required("Please enter a password.")])
     submit = SubmitField("Sign Up")
 
-
+# 登陆表单
 class SigninForm(Form):
     email = TextField("Email",  [validators.Required("Please enter your email address."), validators.Email("Please enter your email address.")])
     password = PasswordField('Password', [validators.Required("Please enter a password.")])

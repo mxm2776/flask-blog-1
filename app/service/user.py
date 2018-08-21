@@ -4,7 +4,7 @@ from datetime import datetime
 
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired
 from itsdangerous import URLSafeTimedSerializer as UrlSerializer
-from werkzeug import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.models import User
 from app.extensions import db

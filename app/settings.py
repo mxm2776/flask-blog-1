@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# 配置文件
 import os
 
 
@@ -22,13 +22,14 @@ class DevelopmentConfig(Config):
 
     ENV = 'development'
     DEBUG = True
-
+    SERVER_IP = '127.0.0.1'
+    SERVER_PORT = 5555
     # session
     CSRF_ENABLED = True
     SECRET_KEY = "asgSfsf3Xd8ffy]fw8vfd0zbvssqwertsd4sdwe"
 
-    # datebase
-    SQLALCHEMY_DATABASE_URI = "mysql://root:abc123@localhost/new-blog"
+    # database
+    SQLALCHEMY_DATABASE_URI = "mysql://root:$@localhost:3306/blog"
     SQLALCHEMY_ECHO = True
 
 
@@ -54,6 +55,5 @@ config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
     'production': ProductionConfig,
-
     'default': DevelopmentConfig
 }
